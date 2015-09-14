@@ -8,11 +8,11 @@ class NoteController < ApplicationController
 	end
 
 	def new
-		
+		@note = Note.new
 	end
 
 	def create
-		
+	    @note = Note.new(note_params)	
 	end
 
 	def edit
@@ -28,12 +28,12 @@ class NoteController < ApplicationController
 	end
 
 	private
-
+ 
 	def find_note
 		
 	end
 
-	def note_params
-		
+	def note_params 
+		params.require(:note).permit(:title, :content)
 	end
 end
